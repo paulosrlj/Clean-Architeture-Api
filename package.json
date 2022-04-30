@@ -7,7 +7,6 @@
     "test": "jest --passWithNoTests --watch",
     "test:staged": "jest --passWithNoTests"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
