@@ -2,11 +2,11 @@
   "compilerOptions": {
     "outDir": "/.dist",
     "module": "CommonJS",
-    "target": "ES2019",
+    "target": "ES2021",
     "esModuleInterop": true,
     "allowJs": true,
     "strictNullChecks": true,
     "noUnusedLocals": true,
-    // "noUnusedParameters": true
+    // "noUnusedParameters": true,
   }
 }
