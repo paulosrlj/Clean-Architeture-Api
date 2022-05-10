@@ -1,13 +1,19 @@
 import { MongoHelper } from '../helpers/mongodb-helper'
 import { AccountMongoRepository } from './account'
 
-describe('Account Postgres Repository', () => {
+describe('Account Mongo Repository', () => {
   beforeAll(async () => {
     await MongoHelper.connect(process.env.MONGODB_URL_TEST ?? '')
   })
 
   afterAll(async () => {
     await MongoHelper.disconnect()
+  })
+
+  // Antes de cada teste, zerar as tabelas do BD
+  beforeEach(async () => {
+    const accountCollection = MongoHelper.getCollection('accounts')
+    await accountCollection.deleteMany({})
   })
 
   const makeSut = (): AccountMongoRepository => {
