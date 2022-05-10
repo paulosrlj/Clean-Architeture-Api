@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
   roots: ['<rootDir>/src'],
   collectCoverage: true,
@@ -5,6 +7,5 @@ module.exports = {
   coverageDirectory: 'coverage',
   transform: {
     '.+\\.ts$': 'ts-jest'
-  },
-  preset: '@shelf/jest-mongodb'
+  }
 }
