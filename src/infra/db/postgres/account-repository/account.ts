@@ -1,4 +1,3 @@
-import { WithId } from 'mongodb'
 import { AddAccountRepository } from '../../../../data/protocols/add-account-repository'
 import { AccountModel } from '../../../../domain/models/Account'
 import { AddAccountModel } from '../../../../domain/usecases/add-account'
@@ -11,8 +10,6 @@ export class AccountMongoRepository implements AddAccountRepository {
     const accountId = result.insertedId
     const account = await accountCollection.findOne(accountId)
 
-    const { _id, ...accountWithoutId } = account as WithId<Document>
-
-    return Object.assign({}, accountWithoutId, { id: _id })
+    return MongoHelper.map(account)
   }
 }
